@@ -15,8 +15,6 @@ const login = async (req, res) => {
 
     // Compare the provided password with the stored hashed password
     const isMatch = await bcrypt.compare(password, user.password);
-    console.log(password)
-    console.log(user.password)
     if (!isMatch) {
       return res.status(400).json({ message: 'Invalid credentials' });
     }

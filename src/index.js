@@ -4,6 +4,10 @@ const cors = require('cors');
 const connectDB = require('./config/db');
 const roleRoutes = require('./routes/roleRoutes');
 const authRoutes = require('./routes/authRoutes');
+const categoryRoutes = require('./routes/categoryRoutes');
+const courseRoutes = require('./routes/courseRoutes');
+const trendingRoutes = require('./routes/trendingRoutes');
+const enrollmentRoutes = require('./routes/enrollmentRoutes');
 
 dotenv.config(); // Load environment variables
 
@@ -19,9 +23,14 @@ app.get('/', (req, res) => {
   res.send('Course Selling Backend');
 });
 
-// Use Role Routes
-app.use('/api', roleRoutes);
+// Routes
+app.use('/api', roleRoutes); //role routes
 app.use('/api/auth', authRoutes);  // Add auth routes
+app.use('/api/categories', categoryRoutes); // Register category routes
+app.use('/uploads', express.static('uploads')); // Serve uploaded files
+app.use('/api/courses', courseRoutes);
+app.use('/api/trending', trendingRoutes);
+app.use('/api/enrollments', enrollmentRoutes);
 
 // Start the server
 const PORT = process.env.PORT || 5000;
