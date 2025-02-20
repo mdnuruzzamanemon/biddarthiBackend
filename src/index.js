@@ -8,6 +8,10 @@ const categoryRoutes = require('./routes/categoryRoutes');
 const courseRoutes = require('./routes/courseRoutes');
 const trendingRoutes = require('./routes/trendingRoutes');
 const enrollmentRoutes = require('./routes/enrollmentRoutes');
+const demoVideoRoutes = require('./routes/demoVideoRoutes');
+const homeBannerRoutes = require('./routes/homeBannerRoutes');
+
+
 
 dotenv.config(); // Load environment variables
 
@@ -31,6 +35,10 @@ app.use('/uploads', express.static('uploads')); // Serve uploaded files
 app.use('/api/courses', courseRoutes);
 app.use('/api/trending', trendingRoutes);
 app.use('/api/enrollments', enrollmentRoutes);
+app.use('/api/demovideos', demoVideoRoutes);
+app.use('/api/homebanner', homeBannerRoutes);
+
+
 
 // Start the server
 const PORT = process.env.PORT || 5000;
