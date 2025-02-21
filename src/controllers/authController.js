@@ -21,7 +21,7 @@ const login = async (req, res) => {
 
     // Create JWT Token
     const token = jwt.sign(
-      { id: user._id, role: user.role },
+      { id: user._id, role: user.role, email: user.email },
       process.env.JWT_SECRET,
       { expiresIn: '1h' } // Token expires in 1 hour
     );
