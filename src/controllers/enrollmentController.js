@@ -106,3 +106,17 @@ exports.deleteEnrollment = async (req, res) => {
     res.status(500).json({ message: 'Server error', error: err.message });
   }
 };
+
+// @desc Get Enrollment Count for a Course (Public)
+exports.getEnrollmentCount = async (req, res) => {
+  try {
+    const { courseId } = req.params;
+
+    // Count enrollments for the given course ID
+    const count = await Enrollment.countDocuments({ course: courseId });
+
+    res.status(200).json({ courseId, enrollmentCount: count });
+  } catch (err) {
+    res.status(500).json({ message: 'Server error', error: err.message });
+  }
+};

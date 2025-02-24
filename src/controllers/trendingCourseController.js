@@ -7,7 +7,13 @@ exports.getTrendingCourses = async (req, res) => {
     const trendingCourses = await TrendingCourse.find()
       .sort({ addedAt: -1 }) // Get latest 4
       .limit(4)
-      .populate('course');
+      .populate({
+        path: 'course',
+        populate: {
+          path: 'category',
+          select: 'categoryName' // This ensures only the categoryName is returned
+        }
+      });
 
     res.status(200).json(trendingCourses);
   } catch (err) {
@@ -45,18 +51,17 @@ exports.addTrendingCourse = async (req, res) => {
   }
 };
 
-// @desc Remove Course from Trending
-exports.removeTrendingCourse = async (req, res) => {
+// @desc Delete a Trending Course
+exports.deleteTrendingCourse = async (req, res) => {
   try {
-    const { courseId } = req.body;
-
-    const trendingCourse = await TrendingCourse.findOneAndDelete({ course: courseId });
-    if (!trendingCourse) {
-      return res.status(404).json({ message: 'Course not found in trending' });
+    const deletedTrendingCourse = await TrendingCourse.findByIdAndDelete(req.params.id);
+    if (!deletedTrendingCourse) {
+      return res.status(404).json({ message: 'Trending course not found' });
     }
 
-    res.status(200).json({ message: 'Course removed from trending' });
-  } catch (err) {
-    res.status(500).json({ message: 'Server error', error: err.message });
+    res.status(200).json({ message: 'Trending course deleted successfully' });
+  } catch (error) {
+    res.status(500).json({ message: 'Server error', error: error.message });
   }
 };
+
