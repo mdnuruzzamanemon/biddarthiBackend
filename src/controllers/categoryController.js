@@ -1,4 +1,6 @@
 const Category = require('../models/Category');
+const Course = require("../models/Course");
+const DemoVideo = require("../models/DemoVideo");
 
 // Create a new category
 const createCategory = async (req, res) => {
@@ -71,10 +73,32 @@ const deleteCategory = async (req, res) => {
   }
 };
 
+
+
+const checkCategoryDependencies = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    // Check if the category is referenced in courses
+    const courseExists = await Course.findOne({ category: id });
+    const demoVideoExists = await DemoVideo.findOne({ category: id });
+
+    if (courseExists || demoVideoExists) {
+      return res.status(200).json({ hasDependencies: true });
+    }
+
+    return res.status(200).json({ hasDependencies: false });
+  } catch (error) {
+    return res.status(500).json({ message: "Server error", error: error.message });
+  }
+};
+
+
 module.exports = {
   createCategory,
   getCategories,
   getCategoryById,
   updateCategory,
-  deleteCategory
+  deleteCategory,
+  checkCategoryDependencies
 };
