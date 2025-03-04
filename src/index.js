@@ -2,7 +2,7 @@ const express = require('express');
 const dotenv = require('dotenv');
 const cors = require('cors');
 const connectDB = require('./config/db');
-const roleRoutes = require('./routes/roleRoutes');
+// const roleRoutes = require('./routes/roleRoutes');
 const authRoutes = require('./routes/authRoutes');
 const categoryRoutes = require('./routes/categoryRoutes');
 const courseRoutes = require('./routes/courseRoutes');
@@ -28,7 +28,7 @@ app.get('/', (req, res) => {
 });
 
 // Routes
-app.use('/api', roleRoutes); //role routes
+// app.use('/api', roleRoutes); //role routes
 app.use('/api/auth', authRoutes);  // Add auth routes
 app.use('/api/categories', categoryRoutes); // Register category routes
 app.use('/uploads', express.static('uploads')); // Serve uploaded files
