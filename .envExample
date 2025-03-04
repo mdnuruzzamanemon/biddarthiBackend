@@ -1,0 +1,28 @@
+# MongoDB Configuration
+#MONGO_URI=  mongodb://biddarthi:Y7x0P35seV5W@biddarthi.org:27017/biddarthi  # Replace with your MongoDB connection URI
+MONGO_URI=  mongodb://localhost:27017/biddarthi  # Replace with your MongoDB connection URI
+
+# JWT Secret Key (for authentication)
+JWT_SECRET=your_jwt_secret_key_here_oiauerasfoajfoajf
+JWT_ACCESS_SECRET=your_jwt_secret_key_here_fafasdfarewrqewrwer
+JWT_REFRESH_SECRET=your_jwt_secret_key_here_afasdfasdafasfasdfw
+
+# Port for the application to run
+PORT=5000
+
+# Bcrypt Salt Rounds (optional, default is 10)
+BCRYPT_SALT_ROUNDS=10
+
+# (Optional) Other Configurations
+NODE_ENV=development  # Can be "production" or "development"
+FRONEND_URL=http://localhost:3000
+# Email Service Credentials (if you're planning to use email services)
+EMAIL_HOST=smtp.mailtrap.io
+EMAIL_PORT=587
+EMAIL_USER=mdnuruzzamanemon@gmail.com
+EMAIL_PASS=xgfd lepn jgsh nahx
+
+# For other services like cloud storage, payment, etc.
+# STRIPE_SECRET_KEY=your_stripe_secret_key
+# AWS_ACCESS_KEY=your_aws_access_key
+# AWS_SECRET_KEY=your_aws_secret_key

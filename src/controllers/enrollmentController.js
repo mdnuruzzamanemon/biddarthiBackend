@@ -19,7 +19,7 @@ exports.enrollStudent = async (req, res) => {
       <h2>Enrollment Submitted</h2>
       <p>Dear ${name},</p>
       <p>Your enrollment request for <b>${course.title}</b> has been submitted.</p>
-      <p>Join our group here: <a href="https://group-link.com">Click to Join</a></p>
+      <p> Please join our telegram group using the link below for further instructions: <a href="https://t.me/+P7eho8F8mSM1NzU1">Click to Join</a></p>
     `;
     sendEmail(email, 'Enrollment Request Submitted', emailContent);
 
