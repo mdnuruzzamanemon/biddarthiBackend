@@ -1,6 +1,6 @@
 # MongoDB Configuration
-#MONGO_URI=  mongodb://biddarthi:Y7x0P35seV5W@biddarthi.org:27017/biddarthi  # Replace with your MongoDB connection URI
-MONGO_URI=  mongodb://localhost:27017/biddarthi  # Replace with your MongoDB connection URI
+#MONGO_URI=  mongodb://biddarthi:Y7x0P35seV5W@biddarthi.org:27017/biddarthi  
+MONGO_URI=  mongodb://localhost:27017/biddarthi  
 
 # JWT Secret Key (for authentication)
 JWT_SECRET=your_jwt_secret_key_here_oiauerasfoajfoajf
@@ -20,9 +20,6 @@ FRONEND_URL=http://localhost:3000
 EMAIL_HOST=smtp.mailtrap.io
 EMAIL_PORT=587
 EMAIL_USER=mdnuruzzamanemon@gmail.com
-EMAIL_PASS=xgfd lepn jgsh nahx
+EMAIL_PASS=
 
-# For other services like cloud storage, payment, etc.
-# STRIPE_SECRET_KEY=your_stripe_secret_key
-# AWS_ACCESS_KEY=your_aws_access_key
-# AWS_SECRET_KEY=your_aws_secret_key
+
